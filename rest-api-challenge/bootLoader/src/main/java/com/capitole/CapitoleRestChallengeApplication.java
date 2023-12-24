@@ -1,4 +1,4 @@
-package com.capitole.restapi.challenge;
+package com.capitole;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
