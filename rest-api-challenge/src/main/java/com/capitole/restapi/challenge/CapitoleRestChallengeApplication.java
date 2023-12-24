@@ -1,0 +1,13 @@
+package com.capitole.restapi.challenge;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CapitoleRestChallengeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CapitoleRestChallengeApplication.class, args);
+	}
+
+}
