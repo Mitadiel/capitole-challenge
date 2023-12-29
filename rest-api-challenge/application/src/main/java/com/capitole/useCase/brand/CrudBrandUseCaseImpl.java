@@ -1,7 +1,8 @@
-package com.capitole.useCase;
+package com.capitole.useCase.brand;
 
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
+import com.capitole.useCase.CrudBrandUseCase;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +16,7 @@ public class CrudBrandUseCaseImpl implements CrudBrandUseCase {
     }
 
     @Override
-    public Brand crateBrand(Brand brandEntity) {
+    public Brand createBrand(Brand brandEntity) {
        return  brandRepositoryPort.save(brandEntity);
     }
 

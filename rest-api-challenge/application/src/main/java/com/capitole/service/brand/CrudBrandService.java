@@ -15,8 +15,8 @@ public class CrudBrandService implements CrudBrandUseCase {
     }
 
     @Override
-    public Brand crateBrand(Brand brandEntity) {
-        return crudBrandUseCase.crateBrand(brandEntity);
+    public Brand createBrand(Brand brandEntity) {
+        return crudBrandUseCase.createBrand(brandEntity);
     }
 
     @Override

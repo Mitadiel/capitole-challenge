@@ -1,6 +1,7 @@
 package com.capitole.drivenAdapter.jpaRepository.repository.brand.impl;
 
 import com.capitole.drivenAdapter.jpaRepository.entity.BrandEntity;
+import com.capitole.drivenAdapter.jpaRepository.entity.ProductEntity;
 import com.capitole.drivenAdapter.jpaRepository.mapper.BrandMapper;
 import com.capitole.drivenAdapter.jpaRepository.repository.brand.BrandRepository;
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
@@ -43,10 +44,16 @@ public class BrandRepositoryAdapter implements BrandRepositoryPort {
     @Override
     @Transactional
     public Optional<Brand> update(Brand brand) {
-            BrandEntity current = brandRepository.findById(brand.getId()).orElseThrow();
+        Optional<BrandEntity> optionalProduct = brandRepository.findById(brand.getId());
+        if (optionalProduct.isPresent()) {
+            BrandEntity current = optionalProduct.get();
             brandMapper.updateEntity(brand,current);
             BrandEntity updatedBrandEntity = brandRepository.save(current);
             return Optional.of(brandMapper.toDomainEntity(updatedBrandEntity));
+        }else {
+            return Optional.empty();
+        }
+
     }
 
     @Override

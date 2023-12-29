@@ -28,7 +28,7 @@ public class CrudBrandController {
     @PostMapping
     public ResponseEntity<BrandResponse> create(@RequestBody BrandRequest brandRequest) {
          Brand request = brandApiMapper.toModel(brandRequest);
-         BrandResponse brandResponse = brandApiMapper.toResponseDto(crudBrandService.crateBrand(request));
+         BrandResponse brandResponse = brandApiMapper.toResponseDto(crudBrandService.createBrand(request));
          return new ResponseEntity<>(brandResponse, HttpStatus.CREATED);
     }
 
