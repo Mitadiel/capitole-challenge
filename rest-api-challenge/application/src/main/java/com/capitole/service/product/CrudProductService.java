@@ -1,7 +1,7 @@
 package com.capitole.service.product;
 
 import com.capitole.entity.product.Product;
-import com.capitole.useCase.CrudProductUseCase;
+import com.capitole.useCase.product.CrudProductUseCase;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,8 +1,8 @@
-package com.capitole.useCase.product;
+package com.capitole.useCase.product.impl;
 
 import com.capitole.drivenPort.repository.ProductRepositoryPort;
 import com.capitole.entity.product.Product;
-import com.capitole.useCase.CrudProductUseCase;
+import com.capitole.useCase.product.CrudProductUseCase;
 
 import java.util.List;
 import java.util.Optional;

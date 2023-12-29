@@ -1,4 +1,4 @@
-package com.capitole.useCase;
+package com.capitole.useCase.product;
 
 import com.capitole.entity.product.Product;
 
