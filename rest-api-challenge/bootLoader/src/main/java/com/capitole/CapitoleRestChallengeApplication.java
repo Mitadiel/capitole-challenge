@@ -9,5 +9,4 @@ public class CapitoleRestChallengeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CapitoleRestChallengeApplication.class, args);
 	}
-
 }
