@@ -1,6 +1,5 @@
 package com.capitole.entryPoint.rest.mapper;
 
-
 import com.capitole.entity.brand.Brand;
 import com.capitole.entryPoint.rest.dto.brand.request.BrandRequest;
 import com.capitole.entryPoint.rest.dto.brand.response.BrandResponse;
@@ -14,7 +13,7 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface BrandApiMapper {
-    Brand toModel(BrandRequest brandRequest);
+    Brand toBrandModel(BrandRequest brandRequest);
 
-    BrandResponse toResponseDto(Brand brandEntity);
+    BrandResponse toBrandResponseDto(Brand brandEntity);
 }

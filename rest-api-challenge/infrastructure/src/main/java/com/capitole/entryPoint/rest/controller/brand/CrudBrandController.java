@@ -27,21 +27,21 @@ public class CrudBrandController {
 
     @PostMapping
     public ResponseEntity<BrandResponse> create(@RequestBody BrandRequest brandRequest) {
-         Brand request = brandApiMapper.toModel(brandRequest);
-         BrandResponse brandResponse = brandApiMapper.toResponseDto(crudBrandService.createBrand(request));
+         Brand request = brandApiMapper.toBrandModel(brandRequest);
+         BrandResponse brandResponse = brandApiMapper.toBrandResponseDto(crudBrandService.createBrand(request));
          return new ResponseEntity<>(brandResponse, HttpStatus.CREATED);
     }
 
     @GetMapping("{brandId}")
     public ResponseEntity<BrandResponse> getById(@PathVariable Long brandId){
         return crudBrandService.getBrandById(brandId)
-                .map(brand -> new ResponseEntity<>(brandApiMapper.toResponseDto(brand), HttpStatus.OK))
+                .map(brand -> new ResponseEntity<>(brandApiMapper.toBrandResponseDto(brand), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping
     public ResponseEntity<List<BrandResponse>> getAllBrands() {
-        List<BrandResponse> brands = crudBrandService.getAllBrands().stream().map(brandApiMapper::toResponseDto).collect(Collectors.toList());
+        List<BrandResponse> brands = crudBrandService.getAllBrands().stream().map(brandApiMapper::toBrandResponseDto).collect(Collectors.toList());
         return new ResponseEntity<>(brands, HttpStatus.OK);
     }
 
@@ -58,9 +58,9 @@ public class CrudBrandController {
     public ResponseEntity<BrandResponse> updateBrand(
             @RequestBody BrandRequest brandRequest,
             @PathVariable Long brandId){
-        Brand brand = brandApiMapper.toModel(brandRequest);
+        Brand brand = brandApiMapper.toBrandModel(brandRequest);
          return crudBrandService.updateBrand(brandId,brand)
-                 .map(brandUpdated -> new ResponseEntity<>(brandApiMapper.toResponseDto(brandUpdated), HttpStatus.OK))
+                 .map(brandUpdated -> new ResponseEntity<>(brandApiMapper.toBrandResponseDto(brandUpdated), HttpStatus.OK))
                  .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         }
 }

@@ -1,9 +1,8 @@
-package com.capitole.useCase.brand;
+package com.capitole.useCase.brand.impl;
 
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
-import com.capitole.useCase.CrudBrandUseCase;
-
+import com.capitole.useCase.brand.CrudBrandUseCase;
 import java.util.List;
 import java.util.Optional;
 

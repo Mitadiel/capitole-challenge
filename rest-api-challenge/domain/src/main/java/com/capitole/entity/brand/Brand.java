@@ -12,15 +12,6 @@ public class Brand {
         this.description = description;
     }
 
-    public Brand(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Brand() {
-    }
-
-
     public Long getId() {
         return id;
     }

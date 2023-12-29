@@ -1,13 +1,11 @@
 package com.capitole.drivenAdapter.jpaRepository.repository.brand.impl;
 
 import com.capitole.drivenAdapter.jpaRepository.entity.BrandEntity;
-import com.capitole.drivenAdapter.jpaRepository.entity.ProductEntity;
 import com.capitole.drivenAdapter.jpaRepository.mapper.BrandMapper;
 import com.capitole.drivenAdapter.jpaRepository.repository.brand.BrandRepository;
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
 import org.springframework.stereotype.Component;
-
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;

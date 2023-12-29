@@ -1,4 +1,4 @@
-package com.capitole.useCase;
+package com.capitole.useCase.brand;
 
 import com.capitole.entity.brand.Brand;
 

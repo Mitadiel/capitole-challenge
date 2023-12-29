@@ -1,7 +1,7 @@
 package com.capitole.service.brand;
 
 import com.capitole.entity.brand.Brand;
-import com.capitole.useCase.CrudBrandUseCase;
+import com.capitole.useCase.brand.CrudBrandUseCase;
 
 import java.util.List;
 import java.util.Optional;
