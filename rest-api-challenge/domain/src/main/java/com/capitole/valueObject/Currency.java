@@ -1,8 +1,5 @@
 package com.capitole.valueObject;
 
-import lombok.Getter;
-
-@Getter
 public enum Currency {
     USD("USD"),
     EUR("EUR"),
@@ -15,4 +12,7 @@ public enum Currency {
         this.isoCode = isoCode;
     }
 
+    public String getIsoCode() {
+        return isoCode;
+    }
 }
