@@ -24,13 +24,13 @@ public class CrudBrandService implements CrudBrandUseCase {
     }
 
     @Override
-    public Optional<Brand> updateBrand(Long id, Brand updatedBrand) {
+    public Brand updateBrand(Long id, Brand updatedBrand) {
         logger.trace(String.format("Updating brand -> %d %s%n", id, updatedBrand.toString()));
         return crudBrandUseCase.updateBrand(id,updatedBrand);
     }
 
     @Override
-    public Optional<Brand> getBrandById(Long id) {
+    public Brand getBrandById(Long id) {
         logger.trace(String.format("Getting info from brand id -> %d",id));
         return crudBrandUseCase.getBrandById(id);
     }

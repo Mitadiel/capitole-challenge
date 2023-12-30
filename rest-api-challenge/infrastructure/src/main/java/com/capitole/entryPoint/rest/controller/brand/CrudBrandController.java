@@ -34,9 +34,7 @@ public class CrudBrandController {
 
     @GetMapping("{brandId}")
     public ResponseEntity<BrandResponse> getById(@PathVariable Long brandId){
-        return crudBrandService.getBrandById(brandId)
-                .map(brand -> new ResponseEntity<>(brandApiMapper.toBrandResponseDto(brand), HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return new ResponseEntity<>(brandApiMapper.toBrandResponseDto(crudBrandService.getBrandById(brandId)), HttpStatus.OK);
     }
 
     @GetMapping
@@ -59,8 +57,6 @@ public class CrudBrandController {
             @RequestBody BrandRequest brandRequest,
             @PathVariable Long brandId){
         Brand brand = brandApiMapper.toBrandModel(brandRequest);
-         return crudBrandService.updateBrand(brandId,brand)
-                 .map(brandUpdated -> new ResponseEntity<>(brandApiMapper.toBrandResponseDto(brandUpdated), HttpStatus.OK))
-                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+         return new ResponseEntity<>(brandApiMapper.toBrandResponseDto(crudBrandService.updateBrand(brandId,brand)), HttpStatus.OK);
         }
 }

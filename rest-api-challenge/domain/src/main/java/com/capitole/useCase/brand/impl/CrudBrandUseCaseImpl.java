@@ -2,9 +2,10 @@ package com.capitole.useCase.brand.impl;
 
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
+import com.capitole.exception.BrandException;
+import com.capitole.exception.constant.BrandConstant;
 import com.capitole.useCase.brand.CrudBrandUseCase;
 import java.util.List;
-import java.util.Optional;
 
 public class CrudBrandUseCaseImpl implements CrudBrandUseCase {
 
@@ -20,14 +21,16 @@ public class CrudBrandUseCaseImpl implements CrudBrandUseCase {
     }
 
     @Override
-    public Optional<Brand> updateBrand(Long id, Brand updatedBrand) {
+    public Brand updateBrand(Long id, Brand updatedBrand) {
         updatedBrand.setId(id);
-        return brandRepositoryPort.update(updatedBrand);
+        return brandRepositoryPort.update(updatedBrand)
+                .orElseThrow(() -> createBrandNotFoundException(id));
     }
 
     @Override
-    public Optional<Brand> getBrandById(Long id) {
-        return brandRepositoryPort.findById(id);
+    public Brand getBrandById(Long id) {
+        return brandRepositoryPort.findById(id)
+                .orElseThrow(() -> createBrandNotFoundException(id));
     }
 
     @Override
@@ -38,5 +41,11 @@ public class CrudBrandUseCaseImpl implements CrudBrandUseCase {
     @Override
     public List<Brand> getAllBrands() {
         return brandRepositoryPort.findAll();
+    }
+
+    private BrandException createBrandNotFoundException(Long id) {
+        return new BrandException(
+                String.format(BrandConstant.BRAND_NOT_FOUND_MESSAGE_ERROR, id)
+        );
     }
 }
