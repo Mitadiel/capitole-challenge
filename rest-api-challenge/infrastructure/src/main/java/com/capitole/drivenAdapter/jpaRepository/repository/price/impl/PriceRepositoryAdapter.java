@@ -11,8 +11,8 @@ import com.capitole.drivenPort.repository.PriceRepositoryPort;
 import com.capitole.entity.price.Price;
 import com.capitole.exception.EntityNotFoundException;
 import com.capitole.exception.NullPointerException;
-import com.capitole.exception.constant.ApiConstant;
 import com.capitole.exception.constant.BrandConstant;
+import com.capitole.exception.constant.PriceConstant;
 import com.capitole.exception.constant.ProductConstant;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
@@ -99,7 +99,7 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
 
     private Pair<BrandEntity, ProductEntity> validateBrandAndProductExistence(Long brandId, Long productId) {
         if (brandId == null || productId == null) {
-            throw new NullPointerException(ApiConstant.ID_CAN_NOT_BE_NULL_MESSAGE_ERROR);
+            throw new NullPointerException(PriceConstant.ID_CAN_NOT_BE_NULL_MESSAGE_ERROR);
         }
         Optional<BrandEntity> brandEntity = brandRepository.findById(brandId);
         if (brandEntity.isEmpty()) {

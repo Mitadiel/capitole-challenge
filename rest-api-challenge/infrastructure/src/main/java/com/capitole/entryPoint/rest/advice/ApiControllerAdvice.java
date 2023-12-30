@@ -2,6 +2,7 @@ package com.capitole.entryPoint.rest.advice;
 
 import com.capitole.exception.BusinessException;
 import com.capitole.exception.EntityNotFoundException;
+import com.capitole.exception.NullPointerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,7 +22,7 @@ public class ApiControllerAdvice {
 
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<String> handleNullInput(NullPointerException nullPointerException){
-        return new ResponseEntity<>(nullPointerException.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(nullPointerException.getErrorMessage(), HttpStatus.BAD_REQUEST);
     }
 
 }
