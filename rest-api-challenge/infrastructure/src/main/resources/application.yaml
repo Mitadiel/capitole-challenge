@@ -20,5 +20,8 @@ spring:
     sql:
         init:
             platform: h2
+    jackson:
+        property-naming-strategy: SNAKE_CASE
+
 server:
     port: 8080
