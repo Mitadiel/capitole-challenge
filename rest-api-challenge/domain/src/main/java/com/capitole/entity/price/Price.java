@@ -35,6 +35,23 @@ public class Price {
     public Price() {
     }
 
+    @Override
+    public String toString() {
+        return "Price{" +
+                "id=" + id +
+                ", brand=" + brand +
+                ", brandId=" + brandId +
+                ", ProductId=" + ProductId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", priceList=" + priceList +
+                ", product=" + product +
+                ", priority=" + priority +
+                ", price=" + price +
+                ", currency=" + currency +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

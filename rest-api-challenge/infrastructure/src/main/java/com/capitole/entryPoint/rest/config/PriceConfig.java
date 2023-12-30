@@ -5,15 +5,16 @@ import com.capitole.service.price.CrudPriceService;
 import com.capitole.service.price.PriceService;
 import com.capitole.useCase.price.impl.CrudPriceUseCaseImpl;
 import com.capitole.useCase.price.impl.PriceUseCaseImpl;
+import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PriceConfig {
     @Bean
-    public CrudPriceService crudPriceService(PriceRepositoryPort priceRepositoryPort) {
+    public CrudPriceService crudPriceService(PriceRepositoryPort priceRepositoryPort, Logger logger) {
         return new CrudPriceService(
-                new CrudPriceUseCaseImpl(priceRepositoryPort));
+                new CrudPriceUseCaseImpl(priceRepositoryPort),logger);
     }
 
     @Bean
