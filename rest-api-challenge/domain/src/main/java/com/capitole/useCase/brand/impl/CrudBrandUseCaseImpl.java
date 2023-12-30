@@ -2,7 +2,7 @@ package com.capitole.useCase.brand.impl;
 
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
-import com.capitole.exception.BrandException;
+import com.capitole.exception.BusinessException;
 import com.capitole.exception.constant.BrandConstant;
 import com.capitole.useCase.brand.CrudBrandUseCase;
 import java.util.List;
@@ -43,8 +43,8 @@ public class CrudBrandUseCaseImpl implements CrudBrandUseCase {
         return brandRepositoryPort.findAll();
     }
 
-    private BrandException createBrandNotFoundException(Long id) {
-        return new BrandException(
+    private BusinessException createBrandNotFoundException(Long id) {
+        return new BusinessException(
                 String.format(BrandConstant.BRAND_NOT_FOUND_MESSAGE_ERROR, id)
         );
     }

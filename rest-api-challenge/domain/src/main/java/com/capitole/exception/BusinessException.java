@@ -1,16 +1,16 @@
 package com.capitole.exception;
 
-public class BrandException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
     private static final long serialVersionUID = 2L;
 
     private String errorMessage;
 
-    public BrandException(String errorMessage) {
+    public BusinessException(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
-    public BrandException() {
+    public BusinessException() {
     }
 
     public String getErrorMessage() {

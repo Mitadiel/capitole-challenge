@@ -24,13 +24,13 @@ public class CrudProductService implements CrudProductUseCase {
     }
 
     @Override
-    public Optional<Product> updateProduct(Long id, Product updatedProduct) {
+    public Product updateProduct(Long id, Product updatedProduct) {
         logger.trace(String.format("Updating product -> %d %s%n", id, updatedProduct.toString()));
        return crudProductUseCase.updateProduct(id,updatedProduct);
     }
 
     @Override
-    public Optional<Product> getProductById(Long id) {
+    public Product getProductById(Long id) {
         logger.trace(String.format("Getting info from product id -> %d",id));
         return crudProductUseCase.getProductById(id);
     }

@@ -1,9 +1,6 @@
 package com.capitole.entryPoint.rest.controller.product;
 
-import com.capitole.entity.brand.Brand;
 import com.capitole.entity.product.Product;
-import com.capitole.entryPoint.rest.dto.brand.request.BrandRequest;
-import com.capitole.entryPoint.rest.dto.brand.response.BrandResponse;
 import com.capitole.entryPoint.rest.dto.product.request.ProductRequest;
 import com.capitole.entryPoint.rest.dto.product.response.ProductResponse;
 import com.capitole.entryPoint.rest.mapper.ProductApiMapper;
@@ -37,9 +34,7 @@ public class CrudProductController {
 
     @GetMapping("{productId}")
     public ResponseEntity<ProductResponse> getById(@PathVariable Long productId){
-        return crudProductService.getProductById(productId)
-                .map(product -> new ResponseEntity<>(productApiMapper.toResponseDto(product), HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return new ResponseEntity<>(productApiMapper.toResponseDto(crudProductService.getProductById(productId)), HttpStatus.OK);
     }
 
     @GetMapping
@@ -62,8 +57,6 @@ public class CrudProductController {
             @RequestBody ProductRequest productRequest,
             @PathVariable Long productId){
         Product product = productApiMapper.toModel(productRequest);
-         return crudProductService.updateProduct(productId,product)
-                 .map(productUpdated -> new ResponseEntity<>(productApiMapper.toResponseDto(productUpdated), HttpStatus.OK))
-                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+         return new ResponseEntity<>(productApiMapper.toResponseDto(crudProductService.updateProduct(productId,product)), HttpStatus.OK);
         }
 }

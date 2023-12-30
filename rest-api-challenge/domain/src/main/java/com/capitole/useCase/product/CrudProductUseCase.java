@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface CrudProductUseCase {
     Product createProduct(Product product);
-    Optional<Product> updateProduct(Long id, Product updatedproduct);
-    Optional<Product> getProductById(Long id);
+    Product updateProduct(Long id, Product updatedproduct);
+    Product getProductById(Long id);
     boolean deleteProduct(Long id);
     List<Product> getAllProducts();
 }
