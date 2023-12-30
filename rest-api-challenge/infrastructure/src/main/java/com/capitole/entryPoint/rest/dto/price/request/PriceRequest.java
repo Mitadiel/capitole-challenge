@@ -1,16 +1,12 @@
 package com.capitole.entryPoint.rest.dto.price.request;
 
-import com.capitole.entity.brand.Brand;
-import com.capitole.entity.product.Product;
 import com.capitole.valueObject.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor

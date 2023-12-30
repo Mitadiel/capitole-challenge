@@ -3,7 +3,6 @@ package com.capitole.service.price;
 import com.capitole.entity.price.Price;
 import com.capitole.useCase.price.CrudPriceUseCase;
 import org.slf4j.Logger;
-
 import java.util.List;
 import java.util.Optional;
 

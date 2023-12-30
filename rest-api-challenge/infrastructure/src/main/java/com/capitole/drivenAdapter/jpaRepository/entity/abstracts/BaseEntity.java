@@ -2,7 +2,6 @@ package com.capitole.drivenAdapter.jpaRepository.entity.abstracts;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

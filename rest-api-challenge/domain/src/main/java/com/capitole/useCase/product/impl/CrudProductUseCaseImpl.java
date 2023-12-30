@@ -2,15 +2,10 @@ package com.capitole.useCase.product.impl;
 
 import com.capitole.drivenPort.repository.ProductRepositoryPort;
 import com.capitole.entity.product.Product;
-import com.capitole.exception.BusinessException;
 import com.capitole.exception.EntityNotFoundException;
-import com.capitole.exception.constant.BrandConstant;
 import com.capitole.exception.constant.ProductConstant;
 import com.capitole.useCase.product.CrudProductUseCase;
-
 import java.util.List;
-import java.util.Optional;
-
 public class CrudProductUseCaseImpl implements CrudProductUseCase {
 
     private final ProductRepositoryPort productRepositoryPort;

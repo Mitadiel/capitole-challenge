@@ -2,7 +2,11 @@ package com.capitole.drivenAdapter.jpaRepository.mapper;
 
 import com.capitole.drivenAdapter.jpaRepository.entity.ProductEntity;
 import com.capitole.entity.product.Product;
-import org.mapstruct.*;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
+import org.mapstruct.NullValueCheckStrategy;
+import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",

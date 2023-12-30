@@ -1,9 +1,7 @@
 package com.capitole.useCase.product;
 
 import com.capitole.entity.product.Product;
-
 import java.util.List;
-import java.util.Optional;
 
 public interface CrudProductUseCase {
     Product createProduct(Product product);

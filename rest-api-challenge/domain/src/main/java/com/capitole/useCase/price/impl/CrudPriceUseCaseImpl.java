@@ -2,12 +2,9 @@ package com.capitole.useCase.price.impl;
 
 import com.capitole.drivenPort.repository.PriceRepositoryPort;
 import com.capitole.entity.price.Price;
-import com.capitole.exception.BusinessException;
 import com.capitole.exception.EntityNotFoundException;
-import com.capitole.exception.constant.BrandConstant;
 import com.capitole.exception.constant.PriceConstant;
 import com.capitole.useCase.price.CrudPriceUseCase;
-
 import java.util.List;
 import java.util.Optional;
 

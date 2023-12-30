@@ -3,9 +3,7 @@ package com.capitole.service.product;
 import com.capitole.entity.product.Product;
 import com.capitole.useCase.product.CrudProductUseCase;
 import org.slf4j.Logger;
-
 import java.util.List;
-import java.util.Optional;
 
 public class CrudProductService implements CrudProductUseCase {
 

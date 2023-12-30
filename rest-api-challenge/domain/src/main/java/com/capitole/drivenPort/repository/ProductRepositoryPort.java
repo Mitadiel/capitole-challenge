@@ -1,7 +1,6 @@
 package com.capitole.drivenPort.repository;
 
 import com.capitole.entity.product.Product;
-
 import java.util.List;
 import java.util.Optional;
 

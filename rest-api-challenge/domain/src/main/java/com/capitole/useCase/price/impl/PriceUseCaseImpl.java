@@ -3,7 +3,6 @@ package com.capitole.useCase.price.impl;
 import com.capitole.drivenPort.repository.PriceRepositoryPort;
 import com.capitole.entity.price.Price;
 import com.capitole.useCase.price.PriceUseCase;
-
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;

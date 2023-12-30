@@ -2,7 +2,6 @@ package com.capitole.useCase.brand.impl;
 
 import com.capitole.drivenPort.repository.BrandRepositoryPort;
 import com.capitole.entity.brand.Brand;
-import com.capitole.exception.BusinessException;
 import com.capitole.exception.EntityNotFoundException;
 import com.capitole.exception.constant.BrandConstant;
 import com.capitole.useCase.brand.CrudBrandUseCase;

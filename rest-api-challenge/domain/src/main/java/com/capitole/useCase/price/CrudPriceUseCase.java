@@ -1,7 +1,6 @@
 package com.capitole.useCase.price;
 
 import com.capitole.entity.price.Price;
-
 import java.util.List;
 import java.util.Optional;
 

@@ -1,7 +1,6 @@
 package com.capitole.drivenPort.repository;
 
 import com.capitole.entity.brand.Brand;
-
 import java.util.List;
 import java.util.Optional;
 
