@@ -35,4 +35,9 @@ public class Brand {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Brand{id=%d, name='%s', description='%s'}", id, name, description);
+    }
 }
