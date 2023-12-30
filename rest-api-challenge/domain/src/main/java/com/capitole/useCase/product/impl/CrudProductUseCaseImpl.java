@@ -3,6 +3,7 @@ package com.capitole.useCase.product.impl;
 import com.capitole.drivenPort.repository.ProductRepositoryPort;
 import com.capitole.entity.product.Product;
 import com.capitole.exception.BusinessException;
+import com.capitole.exception.EntityNotFoundException;
 import com.capitole.exception.constant.BrandConstant;
 import com.capitole.exception.constant.ProductConstant;
 import com.capitole.useCase.product.CrudProductUseCase;
@@ -46,8 +47,8 @@ public class CrudProductUseCaseImpl implements CrudProductUseCase {
         return productRepositoryPort.findAll();
     }
 
-    private BusinessException createProductNotFoundException(Long id) {
-        return new BusinessException(
+    private EntityNotFoundException createProductNotFoundException(Long id) {
+        return new EntityNotFoundException(
                 String.format(ProductConstant.PRODUCT_NOT_FOUND_MESSAGE_ERROR, id)
         );
     }

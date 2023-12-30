@@ -33,9 +33,7 @@ public class CrudPriceController {
 
     @GetMapping("{priceId}")
     public ResponseEntity<PriceResponse> getById(@PathVariable Long priceId){
-        return crudPriceService.getPriceById(priceId)
-                .map(price -> new ResponseEntity<>(priceApiMapper.toResponseDto(price), HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return new ResponseEntity<>(priceApiMapper.toResponseDto(crudPriceService.getPriceById(priceId)), HttpStatus.OK);
     }
 
     @GetMapping

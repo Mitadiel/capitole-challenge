@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface CrudPriceUseCase {
     Price createPrice(Price price);
     Optional<Price> updatePrice(Long id, Price updatePrice);
-    Optional<Price> getPriceById(Long id);
+    Price getPriceById(Long id);
     boolean deletePrice(Long id);
     List<Price> getAllPrices();
 }

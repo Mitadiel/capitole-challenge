@@ -8,11 +8,14 @@ import com.capitole.drivenAdapter.jpaRepository.repository.brand.BrandRepository
 import com.capitole.drivenAdapter.jpaRepository.repository.price.PriceRepository;
 import com.capitole.drivenAdapter.jpaRepository.repository.product.ProductRepository;
 import com.capitole.drivenPort.repository.PriceRepositoryPort;
-import com.capitole.entity.brand.Brand;
 import com.capitole.entity.price.Price;
+import com.capitole.exception.EntityNotFoundException;
+import com.capitole.exception.NullPointerException;
+import com.capitole.exception.constant.ApiConstant;
+import com.capitole.exception.constant.BrandConstant;
+import com.capitole.exception.constant.ProductConstant;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,7 +26,6 @@ import java.util.stream.Collectors;
 public class PriceRepositoryAdapter implements PriceRepositoryPort {
 
     private final PriceRepository priceRepository;
-
     private final BrandRepository brandRepository;
     private final ProductRepository productRepository;
     private final PriceMapper priceMapper;
@@ -76,7 +78,7 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
             PriceEntity updatedPriceEntity = priceRepository.save(current);
             return Optional.of(priceMapper.toPriceDomainEntity(updatedPriceEntity));
         }else {
-            throw new EntityNotFoundException("Price not found for id: " + price.getId());
+           return Optional.empty();
         }
 
     }
@@ -97,16 +99,20 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
 
     private Pair<BrandEntity, ProductEntity> validateBrandAndProductExistence(Long brandId, Long productId) {
         if (brandId == null || productId == null) {
-            throw new NullPointerException("Brand Id or Product Id can not be null");
+            throw new NullPointerException(ApiConstant.ID_CAN_NOT_BE_NULL_MESSAGE_ERROR);
         }
         Optional<BrandEntity> brandEntity = brandRepository.findById(brandId);
         if (brandEntity.isEmpty()) {
-            throw new EntityNotFoundException("Brand not found for id: " + brandId);
+            throw  new EntityNotFoundException(
+                    String.format(BrandConstant.BRAND_NOT_FOUND_MESSAGE_ERROR, brandId)
+            );
         }
 
         Optional<ProductEntity> productEntity = productRepository.findById(productId);
         if (productEntity.isEmpty()) {
-            throw new EntityNotFoundException("Product not found for id: " + productId);
+            throw  new EntityNotFoundException(
+                    String.format(ProductConstant.PRODUCT_NOT_FOUND_MESSAGE_ERROR,productId)
+            );
         }
 
         return Pair.of(brandEntity.get(), productEntity.get());

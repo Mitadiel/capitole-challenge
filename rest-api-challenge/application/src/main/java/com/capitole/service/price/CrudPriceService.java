@@ -31,7 +31,7 @@ public class CrudPriceService implements CrudPriceUseCase {
     }
 
     @Override
-    public Optional<Price> getPriceById(Long id) {
+    public Price getPriceById(Long id) {
         logger.trace(String.format("Getting info from price id -> %d",id));
         return crudPriceUseCase.getPriceById(id);
     }
