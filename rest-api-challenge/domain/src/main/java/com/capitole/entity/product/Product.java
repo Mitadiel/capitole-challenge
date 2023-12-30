@@ -44,4 +44,15 @@ public class Product {
     public void setSku(String sku) {
         this.sku = sku;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", sku='" + sku + '\'' +
+                '}';
+    }
+
 }
