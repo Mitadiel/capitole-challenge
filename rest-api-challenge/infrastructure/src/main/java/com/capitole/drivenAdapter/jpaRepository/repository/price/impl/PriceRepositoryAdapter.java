@@ -14,6 +14,7 @@ import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -89,6 +90,11 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
         return false;
     }
 
+    @Override
+    public List<Price> getQueryPrice(Long brandId, Long productId, LocalDateTime applicationDate) {
+       return priceRepository.findAllByStartDateLessThanEqualAndEndDateGreaterThanEqualAndBrandIdAndProductId(applicationDate,applicationDate,brandId,productId).stream().map(priceMapper::toPriceDomainEntity).collect(Collectors.toList());
+    }
+
     private Pair<BrandEntity, ProductEntity> validateBrandAndProductExistence(Long brandId, Long productId) {
         if (brandId == null || productId == null) {
             throw new NullPointerException("Brand Id or Product Id can not be null");
@@ -105,4 +111,6 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
 
         return Pair.of(brandEntity.get(), productEntity.get());
     }
+
+
 }

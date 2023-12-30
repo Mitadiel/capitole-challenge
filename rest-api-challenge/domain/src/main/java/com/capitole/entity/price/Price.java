@@ -32,6 +32,9 @@ public class Price {
         this.currency = currency;
     }
 
+    public Price() {
+    }
+
     public Long getId() {
         return id;
     }
