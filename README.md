@@ -16,7 +16,6 @@ Spring boot 2.7
 ## Configuración del Proyecto
 
 1. Clona el repositorio:
-   ```bash
   https://github.com/Mitadiel/capitole-challenge.git
 
 Base de Datos
